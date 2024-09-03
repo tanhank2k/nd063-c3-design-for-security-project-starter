@@ -1,13 +1,17 @@
 # Identify tools that will allow you to do the following:
 
 ## Scan infrastructure as code templates
-
+    Use the open-source tool Checkov
 ### Example vulnerability
-
+    Insecure Security Group Rules: Checkov can detect overly permissive security group rules in Terraform scripts, 
+    such as allowing inbound traffic from the internet (0.0.0.0/0) to sensitive ports like SSH (22) or RDP (3389).
 ##Scan AMI’s or containers for OS vulnerabilities
-
+    Using Amazon Inspector
 ### Example vulnerability
-
+    Outdated Software Packages: Amazon Inspector can identify instances running outdated or vulnerable software 
+    packages that need updates or patches.
 ##Scan an AWS environment for cloud configuration vulnerabilities
-
+    Using Amazon Config
 ### Example vulnerability
+    Unencrypted S3 Buckets: Amazon Config can detect S3 buckets that do not have server-side encryption enabled, 
+    which is against best practices for sensitive data storage.

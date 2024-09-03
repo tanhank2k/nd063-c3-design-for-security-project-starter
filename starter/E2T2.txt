@@ -1,3 +1,26 @@
 Research and analyze which of the vulnerabilities appear to be related to the code that was deployed for the environment in this project.
 
+Problem SECURITY HUB
+1. Security groups should not allow ingress from 0.0.0.0/0 or ::/0 to port 22
+2. VPC default security groups should not allow inbound or outbound traffic
+3. Security groups should not allow ingress from 0.0.0.0/0 or ::/0 to port 3389
+
+Problem AWS CONFIG
+1. Amazon Elastic Compute Cloud (Amazon EC2) instances have a public IP association.
+2. securityhub-s3-bucket-logging-enabled (This control checks if an Amazon S3 Bucket has server access logging enabled to a chosen target bucket)
+
+
 Bonus - provide recommendations on how to remediate the vulnerabilities.
+SECURITY HUB
+1. To prohibit ingress to port 22, remove the rule that allows such access for each security group associated with a VPC.
+Restrict the IP range that can access port 22.
+2. To remediate this issue, start by creating new least-privilege security groups. 
+After assigned the new security groups to resources, remove all inbound and outbound rules from the default security groups
+3. To prohibit ingress to port 3389, remove the rule that allows such access for each security group associated with a VPC.
+Restrict the IP range that can access port 3389.
+
+AWS CONFIG
+1. Modify the subnet settings to ensure it does not automatically assign a public IP when instances are launched.
+Ensure that new instances are launched in private subnets that do not have a route to an Internet Gateway directly.
+
+2. Amazon S3 Bucket has server access logging enabled to a chosen target bucket.

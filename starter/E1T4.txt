@@ -1,5 +1,9 @@
 Based on the architecture diagram, and the steps you have taken so far to upload data and access the application web service, identify at least 2 obvious poor practices as it relates to security.  Include justification.
 
 # Poor practice 1
-
+- Problem: The "Secret Recipe Vault" is accessible via an IAM role and policy that likely grants access to this sensitive data. 
+While using IAM roles is a best practice, the configuration and scope of these policies must be handled carefully to prevent over-privileged access
+- Solution: Ensure that the IAM policies associated with the "Secret Recipe Vault" are least privileged
 # Poor practice 2
+- Problem: The diagram outlines different security groups (e.g., "AppLoadBalancerSG" and "AttackInstanceSG") but does not detail the rules they enforce.
+- Solution: Ensure that only required ports are open, and only trusted IPs are allowed

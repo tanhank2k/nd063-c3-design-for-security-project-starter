@@ -1,5 +1,14 @@
 
 
 # Identify 2-3 changes that can be made to our environment to prevent an ssh brute force attack from the internet.
-
+- Limit IP Addresses: Restrict SSH access (port 22) to only known IP addresses. Define rules that allow SSH connections solely from specific trusted IPs
+- For an additional layer of security, enable MFA for your SSH sessions. This can involve using tools like Google Authenticator or Duo to require a second form of verification.
 # Neither instance should have had access to the secret recipes bucket, in the even that instance API credentials were compromised how could we have prevented access to sensitive data.
+- Least Privilege IAM Roles: 
+    Assign IAM roles to instances with only the necessary permissions to perform their required tasks
+- Bucket Policies: 
+    Apply strict bucket policies that restrict which entities can access the S3 bucket. 
+    (include denying all access by default and only allowing specific roles.)
+- Encryption: 
+    Enable encryption at rest using Amazon S3-managed keys (SSE-S3), 
+    AWS Key Management Service (SSE-KMS), or client-side encryption.
